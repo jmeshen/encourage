@@ -20,12 +20,24 @@ h1 {
   padding: 1rem;
 }
 input[type="text"],
-input[type="submit"] {
+input[type="submit"],
+button {
   font-family: inherit;
   -webkit-appearance: none;
   border: 1px solid #3e6566;
   padding: 0.5rem;
   font-size: 1.2rem;
+}
+button {
+  font-size: 1rem;
+  width: 13rem;
+  padding: 0.2rem 0.5rem;
+  cursor: pointer;
+  background-color: mintcream;
+  color: #3f6567;
+}
+button:hover {
+  background-color: rgb(235, 210, 191);
 }
 input[type="text"] {
   width: 60%;

@@ -27,8 +27,7 @@ function sendNotification(text) {
   const n = new Notification('Encouragement', options);
   window.setTimeout(n.close.bind(n), 5000);
 }
-
-function startNotificationInterval() {
+function generateMessage(n) {
   const messages = [
     `You can do it, ${name}! 💪`,
     'Breathe, you got this! 🤗',
@@ -42,10 +41,15 @@ function startNotificationInterval() {
     "Don't watch the clock; keep going. ⏰",
     "⭐ You're a star! ⭐",
   ];
-  let randomMsg = messages[0];
+  return n === 0
+    ? messages[0]
+    : messages[Math.floor(Math.random() * messages.length)];
+}
+function startNotificationInterval() {
+  let randomMsg = generateMessage(0);
   intervalId = window.setInterval(() => {
     sendNotification(randomMsg);
-    randomMsg = messages[Math.floor(Math.random() * messages.length)];
+    randomMsg = generateMessage();
   }, 1800000);
 
   started = true;
@@ -76,7 +80,7 @@ function start(e) {
   name = nameInput.value;
   nameInput.blur();
   greetingNotification(name);
-  document.querySelector('#successMessage',).innerHTML = `awesome, you're all set ${name} 💯<br/><br/>keep this tab open in the background and you'll receive <br/>encouraging notifications every so often ⭐ <br/><br/>or <a id="stopLink" href="#">click here 🛑</a>to stop the madness`;
+  document.querySelector('#successMessage',).innerHTML = `awesome, you're all set ${name} 💯<br/><br/>keep this tab open in the background and you'll receive <br/>encouraging notifications every so often ⭐ <br/><br/><button id="triggerNotification">🚨 emergency notification</button><br/><br/><button id="stopLink">🛑 stop the madness</button>`;
 }
 
 window.onload = () => {
@@ -86,6 +90,9 @@ window.onload = () => {
       window.clearInterval(intervalId);
       document.querySelector('#successMessage').innerHTML = '';
       started = false;
+    }
+    if (event.target.id === 'triggerNotification') {
+      sendNotification(generateMessage());
     }
   });
 };
