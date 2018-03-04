@@ -58,15 +58,18 @@ function startNotificationInterval() {
 function greetingNotification() {
   // Let's check if the browser supports notifications
   if (!('Notification' in window)) {
-    alert('Sorry, it looks like your browser does not support notifications 😞',);
+    alert("Sorry, it looks like your browser does not support notifications 😞, if you're on mobile try on your computer 👩‍💻👨‍💻",);
+    return false;
   } else if (Notification.permission === 'granted') {
     sendNotification(`Hi there ${name}! 👋`);
     startNotificationInterval();
+    return true;
   } else if (Notification.permission !== 'denied') {
     Notification.requestPermission((permission) => {
       if (permission === 'granted') {
         sendNotification(`Hi there ${name}! 👋`);
         startNotificationInterval();
+        return true;
       }
     });
   }
@@ -79,7 +82,10 @@ function start(e) {
   }
   name = nameInput.value;
   nameInput.blur();
-  greetingNotification(name);
+  const canSend = greetingNotification(name);
+  if (!canSend) {
+    return;
+  }
   document.querySelector('#successMessage',).innerHTML = `awesome, you're all set ${name} 💯<br/><br/>keep this tab open in the background and you'll receive <br/>encouraging notifications every so often ⭐ <br/><br/><button id="triggerNotification">🚨 emergency notification</button><br/><br/><button id="stopLink">🛑 stop the madness</button>`;
 }
 
