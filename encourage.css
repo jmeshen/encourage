@@ -1,10 +1,10 @@
 body {
   background-color: #c1e2ce;
   color: #3f6567;
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 h1 {
-  font-family: "Lora", serif;
+  font-family: 'Lora', serif;
 }
 .container {
   display: flex;
@@ -19,8 +19,8 @@ h1 {
   width: 100%;
   padding: 1rem;
 }
-input[type="text"],
-input[type="submit"],
+input[type='text'],
+input[type='submit'],
 button {
   font-family: inherit;
   -webkit-appearance: none;
@@ -39,17 +39,17 @@ button {
 button:hover {
   background-color: rgb(235, 210, 191);
 }
-input[type="text"] {
+input[type='text'] {
   width: 60%;
   background-color: mintcream;
 }
-input[type="submit"] {
+input[type='submit'] {
   width: 20%;
   cursor: pointer;
   background-color: #71b3b5;
   color: white;
 }
-input[type="submit"]:hover {
+input[type='submit']:hover {
   background-color: #5f9ea0;
 }
 a {
