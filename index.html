@@ -13,7 +13,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Encouraging Notifications</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" media="screen" href="encourage.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="css/encourage.css" />
   <link href="https://fonts.googleapis.com/css?family=Lato|Lora" rel="stylesheet">
 </head>
 
@@ -22,11 +22,13 @@
     <h1>need some encouraging notifications?</h1>
     <form class="form">
       <input type="text" name="name" placeholder="what's your name?" required />
-      <input type="submit" value="start" />
-      <p id="successMessage"></p>
+      <input type="submit" name="start" value="start" />
+      <input type="button" name="stop" value="stop" id="stop-notifications" class="hidden" />
     </form>
+    <p id="message-area"></p>
+    <button id="trigger-notification" class="hidden">notification now please 🙏</button>
   </div>
-  <script src="encourage.js"></script>
+  <script type="module" src="js/main.js"></script>
 </body>
 
 </html>
