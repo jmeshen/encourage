@@ -20,6 +20,7 @@ h1 {
   padding: 1rem;
 }
 input[type='text'],
+input[type='button'],
 input[type='submit'],
 button {
   font-family: inherit;
@@ -32,17 +33,19 @@ button {
   font-size: 1rem;
   width: 13rem;
   padding: 0.2rem 0.5rem;
+  margin: 1rem;
   cursor: pointer;
   background-color: mintcream;
   color: #3f6567;
 }
 button:hover {
-  background-color: rgb(235, 210, 191);
+  background-color: #dffeff;
 }
 input[type='text'] {
   width: 60%;
   background-color: mintcream;
 }
+input[type='button'],
 input[type='submit'] {
   width: 20%;
   cursor: pointer;
@@ -52,10 +55,22 @@ input[type='submit'] {
 input[type='submit']:hover {
   background-color: #5f9ea0;
 }
+input[name='stop'] {
+  background-color: #b57171;
+}
+input[name='stop']:hover {
+  background-color: #a05f5f;
+}
 a {
   text-decoration: none;
   color: #317873;
 }
-#successMessage {
+p[name='messageArea'] {
   margin-top: 2rem;
+}
+.hidden {
+  display: none;
+}
+.visible {
+  display: block;
 }
